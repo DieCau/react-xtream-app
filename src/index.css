@@ -1,68 +1,248 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+#root {
+  min-height: 100vh; /* altura total viewport */
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+main {
+  flex-grow: 1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.tinos {
+  font-family: "Tinos", serif;
 }
-button:hover {
-  border-color: #646cff;
+.raleway {
+  font-family: "Raleway", serif;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.fuenteLogo {
+  font-family: "Permanent Marker", serif;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.colorNav {
+  background: #00e701;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 231, 1, 1) 10%,
+    rgba(10, 14, 15, 1) 100%
+  );
+}
+
+.color-logo-nav {
+  color: rgba(10, 14, 15, 1) !important;
+}
+
+.buscadorNav {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.buscadorNav::placeholder {
+  color: rgba(10, 14, 15) !important;
+}
+
+.boton-hamburguesa {
+  background-color: rgba(10, 14, 15) !important;
+  border: 1px solid #fff !important;
+}
+
+@media (max-width: 991px) {
+  .nav-link {
+    color: black !important;
   }
-  a:hover {
-    color: #747bff;
+
+  .nav-link:hover {
+    color: #fff !important;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .boton-logout {
+    background-color: rgb(1, 128, 255) !important;
+  }
+
+  .boton-crea-cuenta {
+    background-color: rgb(1, 128, 255) !important;
+    width: 25%;
+    margin-bottom: 1px;
   }
 }
+
+/* Cambia el color de las flechas del carrusel a blanco */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1) brightness(2) !important;
+}
+
+.imagen-detalle-pelicula {
+  filter: grayscale(60%);
+  transition: 400ms;
+}
+
+.imagen-detalle-pelicula:hover {
+  filter: grayscale(0%);
+}
+
+
+.terminos-condiciones {
+  overflow-y: auto;
+  border: 1px dotted #00e701;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+  /* Cambia el color de los indicadores (rallitas) del carrusel */
+  .carousel-indicators [data-bs-target] {
+    background-color: #fff !important;
+    opacity: 1 !important;
+  }
+  .carousel-indicators .active {
+    background-color: #4ade80 !important;
+  }
+/* index.css */
+
+/* === Estilos para la página "Acerca de Nosotros" === */
+
+/* Contenedor principal de la sección */
+.about-container {
+  padding: 2rem;
+  background-color: #f8f9fa; /* Fondo claro */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Títulos principales */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Subtítulos como "Nuestra visión", "Nuestro objetivo" */
+.about-subtitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Párrafos explicativos */
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Contenedor del equipo (grid responsive) */
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Tarjeta individual de cada miembro del equipo */
+.team-member {
+  width: 250px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen del miembro del equipo */
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+/* Nombre del miembro */
+.member-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+/* Rol ficticio o puesto */
+.member-role {
+  font-style: italic;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* estilo imagen circular */
+.team-img {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block;
+  margin: 0 auto 1rem auto !important;
+}
+
+/* Card individual del equipo (sin bordes y con efecto hover) */
+.team-card {
+  border: none;
+  transition: transform 0.3s ease;
+  background-color: transparent;
+}
+
+/* Efecto zoom suave al pasar el mouse por encima */
+.team-card:hover {
+  transform: scale(1.03);
+}
+
+.bg-objetivo {
+  background-color: #00e701; 
+  color: #000 !important;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #000000;
+  
+}
+
+.bg-vision {
+  background-color: #ffffff;
+  color: #000000 !important;
+  padding: 2rem;
+  border: 2px solid #00e701; 
+  border-radius: 12px;
+  
+}
+
+.titulo-gradiente {
+    background: linear-gradient(90deg, #00e701, #1a1b1f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-family: 'Tinos', serif;
+}
+
+.fuenteEquipo {
+  background: linear-gradient(90deg, #00e701, #474e54);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-family: 'Tinos', serif;
+}
+
+.sombraCard{
+  box-shadow: 0 4px 16px 0 rgba(34, 197, 94, 0.4);
+
+}
+
+.sombraCard:hover {
+  box-shadow: 0 8px 20px 0 rgba(15, 241, 102, 0.6); 
+  border: 2px solid rgb(93, 249, 151);
+}
+
