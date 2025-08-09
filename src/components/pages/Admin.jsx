@@ -1,7 +1,7 @@
 import { Button, Table } from 'react-bootstrap';
 import ItemPelicula from './componentesAdministrador/ItemPelicula';
 import { Link } from 'react-router';
-import {cardsData} from '../../data/cardPrueba'
+import {cardsData} from '../../data/cardTest'
 
 const Admin = ({ peliculas, setPeliculas, borrarPelicula,  destacarPelicula }) => {
 
