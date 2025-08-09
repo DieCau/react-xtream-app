@@ -2,17 +2,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Menu from "./components/shared/Menu";
 import Footer from "./components/shared/Footer";
-import Inicio from "./components/pages/Inicio";
-import Contacto from "./components/pages/Contacto";
+import Home from "./components/pages/Home";
+import Contacto from "./components/pages/Contact";
 import Login from "./components/pages/Login";
-import DetallePelicula from "./components/pages/DetallePelicula";
+import DetallePelicula from "./components/pages/DetailMovie";
 import Error404 from "./components/pages/Error404";
-import Administrador from "./components/pages/Administrador";
-import AcercaDeNosotros from "./components/pages/AcercaDeNosotros";
+import Administrador from "./components/pages/Admin";
+import AcercaDeNosotros from "./components/pages/About";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 import ProtectorAdmin from "./components/ProtectorAdmin";
-import FormularioPelicula from "./components/pages/FormularioPelicula";
+import FormularioPelicula from "./components/pages/FormMovies";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
@@ -76,7 +76,7 @@ function App() {
         <Menu adminUser={adminUser} setAdminUser={setAdminUser} setTerminoBusqueda={setTerminoBusqueda} terminoBusqueda={terminoBusqueda}></Menu>
         <main>
           <Routes>
-            <Route path="/" element={<Inicio peliculas={peliculas} terminoBusqueda={terminoBusqueda}></Inicio>}></Route>
+            <Route path="/" element={<Home peliculas={peliculas} terminoBusqueda={terminoBusqueda}></Home>}></Route>
             <Route
               path="/login"
               element={<Login setAdminUser={setAdminUser}></Login>}
