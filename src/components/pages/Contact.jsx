@@ -2,6 +2,10 @@ import { Col, Form, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
+// Componente Contact que permite a los usuarios enviar consultas
+// Utiliza react-hook-form para la gestión de formularios y validación
+// Utiliza SweetAlert2 para mostrar mensajes de éxito al enviar el formulario
+// Importa los estilos necesarios de Bootstrap y SweetAlert2
 const Contact = () => {
   const {
     register,
