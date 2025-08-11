@@ -1,5 +1,5 @@
 import { Button, Table } from 'react-bootstrap';
-import ItemPelicula from './componentesAdministrador/ItemPelicula';
+import ItemPelicula from './componentsAdmin/ItemMovie';
 import { Link } from 'react-router';
 import {cardsData} from '../../data/cardTest'
 

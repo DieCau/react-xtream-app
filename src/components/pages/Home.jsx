@@ -1,5 +1,5 @@
-import CaruselInicio from "./componentesInicio/CaruselInicio";
-import CardInicio from "./componentesInicio/CardInicio";
+import CaruselInicio from "./componentsHome/CaruselHome";
+import CardInicio from "./componentsHome/CardHome";
 import { Row } from "react-bootstrap";
 import { useState } from "react";
 
