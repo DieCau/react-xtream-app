@@ -3,8 +3,11 @@ import ItemPelicula from './componentsAdmin/ItemMovie';
 import { Link } from 'react-router';
 import {cardsData} from '../../data/cardTest'
 
+// Este componente es el administrador de películas/series
+// Permite agregar, eliminar y destacar películas/series
+// Utiliza un estado para manejar la lista de películas/series
+// y funciones para modificarla.
 const Admin = ({ peliculas, setPeliculas, borrarPelicula,  destacarPelicula }) => {
-
   const cargarDatosPrueba = () => {
     setPeliculas(cardsData)
   }
