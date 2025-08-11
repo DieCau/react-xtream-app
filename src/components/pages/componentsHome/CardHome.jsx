@@ -2,6 +2,11 @@ import Card from "react-bootstrap/Card";
 import { Col } from "react-bootstrap";
 import { Link } from "react-router";
 
+// Componente que muestra una tarjeta con la información de una película.
+// Recibe un objeto `pelicula` como prop.
+// El objeto `pelicula` debe contener las propiedades: type, destacada, image,
+// title, year, genre, description_breve, id.
+
 const CardHome = ({ pelicula }) => {
   return (
     <>

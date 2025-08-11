@@ -2,6 +2,11 @@ import { Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router';
 import Swal from 'sweetalert2';
 
+// Componente para mostrar una película o serie en el carrito
+// Recibe la película, el número de fila, y funciones para borrar y destacar la película
+// Se utiliza en la página de administración de películas y series
+// Muestra el título, tipo, año, género y botones para editar, eliminar y destacar
+
 const ItemMovie = ({ pelicula, fila, borrarPelicula, destacarPelicula}) => {
 
   const eliminarPelicula = () =>{
