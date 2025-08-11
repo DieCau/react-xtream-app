@@ -4,6 +4,9 @@ import miltonImg from '../../assets/imagen_equipo/Milton-Mamani.jpeg';
 import lucasImg from '../../assets/imagen_equipo/Lucas-figueroa.jpeg';
 import alejandroImg from '../../assets/imagen_equipo/alejandro-insinga.jpeg';
 
+// Componente que muestra información sobre el equipo
+// y la visión de la empresa
+
 const miembros = [
   {
     nombre: "Juan Manuel Blanco",
