@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { Container, Card, Row, Col, CardText } from "react-bootstrap";
 import { Link, useParams } from "react-router";
 
+// Componente DetailMovie que muestra detalles de una película
+// Recibe un objeto de búsqueda y una función buscarPelicula como props
+// El componente utiliza el hook useParams para obtener el ID de la película desde la URL
+// Luego utiliza el hook useEffect para buscar la película en la API y actualizar el estado
+// El componente muestra el título, la imagen, el año de estreno y la descripción de la película
 const DetailMovie = ({ buscarPelicula }) => {
   const { id } = useParams();
   const [pelicula, setPelicula] = useState({});
