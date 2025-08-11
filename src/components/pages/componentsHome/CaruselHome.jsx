@@ -1,7 +1,11 @@
 import Carousel from 'react-bootstrap/Carousel';
 import '../../../index.css';
-const CaruselHome = () => {
 
+// Componente de carrusel para la página de inicio
+// Muestra imágenes destacadas de la plataforma
+// Importa Bootstrap para el estilo del carrusel
+// Utiliza imágenes de alta calidad para una mejor experiencia visual
+const CaruselHome = () => {
   return (
     <>
       <Carousel>
