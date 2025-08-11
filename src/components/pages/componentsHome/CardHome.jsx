@@ -9,19 +9,17 @@ const CardHome = ({ pelicula }) => {
         <Card className="h-100 sombraCard">
           <Card.Header className="bg-success d-flex">
             <Card.Text>{pelicula.type}</Card.Text>
-            {
-              (pelicula.destacada ? (
-                <i className="bi bi-star-fill fs-5 text-warning ms-auto"></i>
-              ) : (
-                <Card.Text></Card.Text>
-              ))
-            }
+            {pelicula.destacada ? (
+              <i className="bi bi-star-fill fs-5 text-warning ms-auto"></i>
+            ) : (
+              <Card.Text></Card.Text>
+            )}
           </Card.Header>
           <Card.Img
             variant="top"
             src={pelicula.image}
             alt="Póster de Matrix"
-            className="h-100 overflow-hidden"
+            className="h-90 object-fit-cover"
           />
           <Card.Body className="h-100">
             <Card.Title className="mb-3">{pelicula.title}</Card.Title>
