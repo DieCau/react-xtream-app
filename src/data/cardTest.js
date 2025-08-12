@@ -1,3 +1,4 @@
+// Datos de prueba para las tarjetas de películas y series
 export const cardsData = [
   {
     id: 1,
