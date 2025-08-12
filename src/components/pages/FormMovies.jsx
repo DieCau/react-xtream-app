@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 
+// Componente FormMovies que maneja el formulario para añadir o editar películas/series
+// Recibe como props el título del formulario, una función para crear películas,
+// una función para buscar una película por su ID y una función para editar una película existente
+
 const FormMovies = ({ titulo, crearPeliculas, buscarPelicula, editarPelicula }) => {
   const {
     register,
