@@ -3,6 +3,12 @@ import CardInicio from "./componentsHome/CardHome";
 import { Row } from "react-bootstrap";
 import { useState } from "react";
 
+// Componente Home que recibe las películas y el término de búsqueda como props 
+// y muestra un carrusel, un título, un select para filtrar por género y las tarjetas de películas filtradas.
+// El componente Home también contiene una función handleSelectChange que se ejecuta cuando se selecciona una opción en el select.
+// La función handleSelectChange actualiza el estado selector con la opción seleccionada y filtra las películas según la opción seleccionada.
+
+
 const Home = ({ peliculas, terminoBusqueda }) => {
   const [selector, setSelector] = useState("");
 
