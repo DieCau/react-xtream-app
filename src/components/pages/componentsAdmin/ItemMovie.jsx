@@ -1,68 +1,78 @@
-import { Button } from 'react-bootstrap';
-import { Link, useParams } from 'react-router';
-import Swal from 'sweetalert2';
+import { Button } from "react-bootstrap";
+import { Link, useParams } from "react-router";
+import Swal from "sweetalert2";
 
 // Componente para mostrar una película o serie en el carrito
 // Recibe la película, el número de fila, y funciones para borrar y destacar la película
 // Se utiliza en la página de administración de películas y series
 // Muestra el título, tipo, año, género y botones para editar, eliminar y destacar
 
-const ItemMovie = ({ pelicula, fila, borrarPelicula, destacarPelicula}) => {
-
-  const eliminarPelicula = () =>{
+const ItemMovie = ({ pelicula, fila, borrarPelicula, destacarPelicula }) => {
+  const eliminarPelicula = () => {
     Swal.fire({
-  title: "Eliminar pelicula/serie",
-  text: "No puedes revertir este paso!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#277a35ff",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Si, quiero eliminar!",
-  cancelButtonText: "Cancelar"
-}).then((result) => {
-  if (result.isConfirmed) {
-    if(borrarPelicula(pelicula.id)){
-      Swal.fire({
-      title: "Película/serie eliminada!",
-      text: `La película/serie ${pelicula.title} fue eliminada correctamente`,
-      icon: "success"
+      title: "Eliminar pelicula/serie",
+      text: "No puedes revertir este paso!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#277a35ff",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, quiero eliminar!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (borrarPelicula(pelicula.id)) {
+          Swal.fire({
+            title: "Película/serie eliminada!",
+            text: `La película/serie ${pelicula.title} fue eliminada correctamente`,
+            icon: "success",
+          });
+        } else {
+          Swal.fire({
+            title: "Ocurrió un error!",
+            text: `La película/serie ${pelicula.title} no pudo ser eliminada`,
+            icon: "error",
+          });
+        }
+      }
     });
-    }
-    else{
-      Swal.fire({
-      title: "Ocurrió un error!",
-      text: `La película/serie ${pelicula.title} no pudo ser eliminada`,
-      icon: "error"
-    });
-    }
-  }
-});
-  }
+  };
 
-    return (
-        <tr>
+  return (
+    <tr>
       <td className="text-center">{fila}</td>
       <td>{pelicula.title}</td>
       <td className="text-center">{pelicula.type}</td>
-      <td className="text-center">
-        {pelicula.year}
-      </td>
+      <td className="text-center">{pelicula.year}</td>
       <td>{pelicula.genre}</td>
       <td className="text-center">
         <div className="d-flex gap-1 justify-content-center">
-        <Link to={`/administrador/editar/${pelicula.id}`} className="btn btn-warning me-lg-2">
-          <i className="bi bi-pencil-square"></i>
-        </Link>
-        <Button variant="danger" onClick={eliminarPelicula} className='me-lg-2'>
-          <i className="bi bi-trash"></i>
-        </Button>
-        <Button variant="transparent" onClick={() => destacarPelicula(pelicula.id)}>
-          {pelicula.destacada? <i className="bi bi-star-fill fs-4 text-success"></i> : <i className="bi bi-star text-success"></i>}
-        </Button>
+          <Link
+            to={`/administrador/editar/${pelicula.id}`}
+            className="btn btn-warning me-lg-2"
+          >
+            <i className="bi bi-pencil-square"></i>
+          </Link>
+          <Button
+            variant="danger"
+            onClick={eliminarPelicula}
+            className="me-lg-2"
+          >
+            <i className="bi bi-trash"></i>
+          </Button>
+          <Button
+            variant="transparent"
+            onClick={() => destacarPelicula(pelicula.id)}
+          >
+            {pelicula.destacada ? (
+              <i className="bi bi-star-fill fs-4 text-success"></i>
+            ) : (
+              <i className="bi bi-star text-success"></i>
+            )}
+          </Button>
         </div>
       </td>
     </tr>
-    );
+  );
 };
 
 export default ItemMovie;
