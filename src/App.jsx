@@ -15,6 +15,8 @@ import ProtectorAdmin from "./components/ProtectorAdmin";
 import FormularioPelicula from "./components/pages/FormMovies";
 import { v4 as uuidv4 } from "uuid";
 
+// Componente principal de la aplicación
+// Maneja el estado global y las rutas de la aplicación
 function App() {
   const userLogueado = sessionStorage.getItem("userKey") || false;
   const [adminUser, setAdminUser] = useState(userLogueado);
