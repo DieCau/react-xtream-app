@@ -1,30 +1,30 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
-import juanImg from '../../assets/imagen_equipo/juan-blanco.jpeg';
-import miltonImg from '../../assets/imagen_equipo/Milton-Mamani.jpeg';
-import lucasImg from '../../assets/imagen_equipo/Lucas-figueroa.jpeg';
-import alejandroImg from '../../assets/imagen_equipo/alejandro-insinga.jpeg';
+import diegoImg from '../../assets/imagen_equipo/avatar5.png';
+import gabrielImg from "../../assets/imagen_equipo/avatar2.png";
+import lucasImg from '../../assets/imagen_equipo/avatar4.png';
+import gerardoImg from '../../assets/imagen_equipo/avatar1.png';
 
 // Componente que muestra información sobre el equipo
 // y la visión de la empresa
 
 const miembros = [
   {
-    nombre: "Juan Manuel Blanco",
+    nombre: "Diego Caucota",
     rol: "CEO & Fundador",
-    imagen: juanImg,
+    imagen: diegoImg,
   },
   {
-    nombre: "Alejandro Insinga",
+    nombre: "Gerardo Moreno",
     rol: "Diseñador UX/UI",
-    imagen: alejandroImg,
+    imagen: gerardoImg,
   },
   {
-    nombre: "Milton Ramon Mamani",
+    nombre: "Gabriel Sanchez",
     rol: "Desarrollador Full Stack",
-    imagen: miltonImg,
+    imagen: gabrielImg,
   },
   {
-    nombre: "Lucas Ivan Figueroa Alcorta",
+    nombre: "Lucas Gomez",
     rol: "Especialista en Marketing",
     imagen: lucasImg,
   },
