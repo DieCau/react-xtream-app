@@ -3,6 +3,12 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 
+// Componente Login que contiene un formulario para que el administrador inicie sesión.
+// El componente Login utiliza react-hook-form para manejar la validación del formulario.
+// Cuando el formulario se envía, se verifica si las credenciales coinciden con las almacenadas en las variables de entorno.
+// Si las credenciales son correctas, se actualiza el estado del usuario administrador y se redirige a la página de administración.
+// Si las credenciales son incorrectas, se muestra un modal de error.
+// El componente también incluye un enlace para recuperar la contraseña, que muestra un modal con instrucciones cuando se hace clic en él.
 const Login = ({setAdminUser}) => {
   const {
     register,
