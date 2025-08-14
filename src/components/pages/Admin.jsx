@@ -1,30 +1,33 @@
-import { Button, Table } from 'react-bootstrap';
-import ItemPelicula from './componentsAdmin/ItemMovie';
-import { Link } from 'react-router';
-import {cardsData} from '../../data/cardTest'
+import { Button, Table } from "react-bootstrap";
+import ItemPelicula from "./componentsAdmin/ItemMovie";
+import { Link } from "react-router";
+import { cardsData } from "../../data/cardTest";
 
 // Este componente es el administrador de películas/series
 // Permite agregar, eliminar y destacar películas/series
 // Utiliza un estado para manejar la lista de películas/series
 // y funciones para modificarla.
-const Admin = ({ peliculas, setPeliculas, borrarPelicula,  destacarPelicula }) => {
+const Admin = ({
+  peliculas,
+  setPeliculas,
+  borrarPelicula,
+  destacarPelicula,
+}) => {
   const cargarDatosPrueba = () => {
-    setPeliculas(cardsData)
-  }
+    setPeliculas(cardsData);
+  };
 
-    return (
-        <section className='container'>
-           <div className="row justify-content-between align-items-center mt-5">
+  return (
+    <section className="container">
+      <div className="row justify-content-between align-items-center mt-5">
         <h1 className="display-4 tinos">Catálogo de películas/series</h1>
-        <div className='d-flex gap-2 my-2'>
+        <div className="d-flex gap-2 my-2">
           <Link to={"/administrador/crear"} className="btn btn-success">
             Agregar película/serie
             <i className="bi bi-file-earmark-plus ms-2"></i>
           </Link>
           <Button className="btn btn-info ms-2" onClick={cargarDatosPrueba}>
-            <i
-              className="bi bi-database-fill-add"
-            ></i>
+            <i className="bi bi-database-fill-add"></i>
           </Button>
         </div>
       </div>
@@ -41,11 +44,19 @@ const Admin = ({ peliculas, setPeliculas, borrarPelicula,  destacarPelicula }) =
           </tr>
         </thead>
         <tbody>
-            {peliculas.map((pelicula, indice)=><ItemPelicula key={pelicula.id} fila={indice+1} pelicula={pelicula} destacarPelicula={destacarPelicula} borrarPelicula={borrarPelicula}></ItemPelicula>)}
+          {peliculas.map((pelicula, indice) => (
+            <ItemPelicula
+              key={pelicula.id}
+              fila={indice + 1}
+              pelicula={pelicula}
+              destacarPelicula={destacarPelicula}
+              borrarPelicula={borrarPelicula}
+            ></ItemPelicula>
+          ))}
         </tbody>
       </Table>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Admin;
