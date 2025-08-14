@@ -9,35 +9,36 @@ import { useState } from "react";
 // Si las credenciales son correctas, se actualiza el estado del usuario administrador y se redirige a la página de administración.
 // Si las credenciales son incorrectas, se muestra un modal de error.
 // El componente también incluye un enlace para recuperar la contraseña, que muestra un modal con instrucciones cuando se hace clic en él.
-const Login = ({setAdminUser}) => {
+const Login = ({ setAdminUser }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const navegacion = useNavigate()
+  const navegacion = useNavigate();
   const [mostrarModal, setMostrarModal] = useState(false);
   const [mostrarModalRecuperar, setMostrarModalRecuperar] = useState(false);
 
-
   const iniciarSesion = (usuario) => {
-    if(
+    if (
       usuario.email === import.meta.env.VITE_API_EMAIL &&
       usuario.password === import.meta.env.VITE_API_PASSWORD
-    ){
-      setAdminUser(true)
-      sessionStorage.setItem("userKey", true)
-      navegacion("/administrador")
-    }else {
-    setMostrarModal(true); // mostrar el modal si las credenciales son incorrectas
-  }
-  }
+    ) {
+      setAdminUser(true);
+      sessionStorage.setItem("userKey", true);
+      navegacion("/administrador");
+    } else {
+      setMostrarModal(true); // mostrar el modal si las credenciales son incorrectas
+    }
+  };
   return (
     <section className="container">
       <Row xs={1} md={2} className="align-items-center">
         <Col className="mb-3">
-        <h1 className="my-5 text-center text-md-start tinos">Inicia sesión</h1>
+          <h1 className="my-5 text-center text-md-start tinos">
+            Inicia sesión
+          </h1>
           <Form className="raleway" onSubmit={handleSubmit(iniciarSesion)}>
             <Form.Group>
               <Form.Label>Correo electrónico</Form.Label>
@@ -55,15 +56,15 @@ const Login = ({setAdminUser}) => {
                       "El correo electrónico debe tener un formato válido, por ejemplo juan2025@mail.com",
                   },
                   minLength: {
-                value: 5,
-                message:
-                  "La descrición amplia debe tener almenos 5 caracteres",
-              },
-              maxLength: {
-                value: 100,
-                message:
-                  "La descrición amplia debe tener como máximo 100 caracteres",
-              },
+                    value: 5,
+                    message:
+                      "La descrición amplia debe tener almenos 5 caracteres",
+                  },
+                  maxLength: {
+                    value: 100,
+                    message:
+                      "La descrición amplia debe tener como máximo 100 caracteres",
+                  },
                 })}
               ></Form.Control>
               <Form.Text className="text-danger">
@@ -102,52 +103,70 @@ const Login = ({setAdminUser}) => {
               Iniciar sesión
             </Button>
             <p className="mt-3">
-  ¿Olvidaste tu contraseña?{" "}
-  <a href="#" onClick={(e) => {
-    e.preventDefault();
-    setMostrarModalRecuperar(true);
-  }}>
-    Recuperala acá
-  </a>
-</p>
+              ¿Olvidaste tu contraseña?{" "}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMostrarModalRecuperar(true);
+                }}
+              >
+                Recuperala acá
+              </a>
+            </p>
           </Form>
         </Col>
         <Col>
-        <img src="https://ca-times.brightspotcdn.com/dims4/default/f507332/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F08%2Fa2%2Fe47e812707a40774a24e6e8f6657%2F95ecd52380214c35b1cca6dbc1d8a643" alt="Últimos estrenos de 2025" className="img-fluid rounded"/></Col>
+          <img
+            src="https://ca-times.brightspotcdn.com/dims4/default/f507332/2147483647/strip/true/crop/3000x2000+0+0/resize/1200x800!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F08%2Fa2%2Fe47e812707a40774a24e6e8f6657%2F95ecd52380214c35b1cca6dbc1d8a643"
+            alt="Últimos estrenos de 2025"
+            className="img-fluid rounded"
+          />
+        </Col>
       </Row>
       <Modal show={mostrarModal} onHide={() => setMostrarModal(false)} centered>
-  <Modal.Header closeButton>
-    <Modal.Title>Error de inicio de sesión</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    Usuario o contraseña incorrectos. Por favor, revisá tus datos.
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={() => setMostrarModal(false)}>
-      Cerrar
-    </Button>
-  </Modal.Footer>
-</Modal>
-<Modal show={mostrarModalRecuperar} onHide={() => setMostrarModalRecuperar(false)} centered>
-  <Modal.Header closeButton>
-    <Modal.Title>Recuperar contraseña</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    <p>Para recuperar tu contraseña seguí estos pasos:</p>
-    <ol>
-      <li>Enviá un correo a <strong>soporte@xtream.com</strong></li>
-      <li>Indicá tu nombre completo y correo registrado</li>
-      <li>En breve te llegará un correo con instrucciones para restablecer tu contraseña</li>
-    </ol>
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={() => setMostrarModalRecuperar(false)}>
-      Cerrar
-    </Button>
-  </Modal.Footer>
-</Modal>
-
-
+        <Modal.Header closeButton>
+          <Modal.Title>Error de inicio de sesión</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Usuario o contraseña incorrectos. Por favor, revisá tus datos.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setMostrarModal(false)}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        show={mostrarModalRecuperar}
+        onHide={() => setMostrarModalRecuperar(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Recuperar contraseña</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Para recuperar tu contraseña seguí estos pasos:</p>
+          <ol>
+            <li>
+              Enviá un correo a <strong>soporte@xtream.com</strong>
+            </li>
+            <li>Indicá tu nombre completo y correo registrado</li>
+            <li>
+              En breve te llegará un correo con instrucciones para restablecer
+              tu contraseña
+            </li>
+          </ol>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setMostrarModalRecuperar(false)}
+          >
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </section>
   );
 };
