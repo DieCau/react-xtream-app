@@ -51,7 +51,10 @@ const DetailMovie = ({ buscarPelicula }) => {
               <Card.Text className="tinos mb-lg-5">
                 {pelicula.description_amplia}
               </Card.Text>
-              <Link className="btn btn-success w-100 mb-lg-5" to={pelicula.trailer}>
+              <Link
+                className="btn btn-success w-100 mb-lg-5"
+                to={pelicula.trailer}
+              >
                 Ver Pelicula
               </Link>
             </Card.Body>
