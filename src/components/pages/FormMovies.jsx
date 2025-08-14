@@ -8,7 +8,12 @@ import Swal from "sweetalert2";
 // Recibe como props el título del formulario, una función para crear películas,
 // una función para buscar una película por su ID y una función para editar una película existente
 
-const FormMovies = ({ titulo, crearPeliculas, buscarPelicula, editarPelicula }) => {
+const FormMovies = ({
+  titulo,
+  crearPeliculas,
+  buscarPelicula,
+  editarPelicula,
+}) => {
   const {
     register,
     handleSubmit,
@@ -17,11 +22,11 @@ const FormMovies = ({ titulo, crearPeliculas, buscarPelicula, editarPelicula }) 
     setValue,
   } = useForm();
 
-  const {id} = useParams()
-  const navegacion = useNavigate()
+  const { id } = useParams();
+  const navegacion = useNavigate();
 
-  useEffect(()=>{
-    if(titulo==="Editar película/serie"){
+  useEffect(() => {
+    if (titulo === "Editar película/serie") {
       const peliculaBuscada = buscarPelicula(id);
       setValue("title", peliculaBuscada.title);
       setValue("year", peliculaBuscada.year);
@@ -33,7 +38,7 @@ const FormMovies = ({ titulo, crearPeliculas, buscarPelicula, editarPelicula }) 
       setValue("description_breve", peliculaBuscada.description_breve);
       setValue("description_amplia", peliculaBuscada.description_amplia);
     }
-  },[])
+  }, []);
 
   const onSubmit = (pelicula) => {
     if (titulo === "Añadir película/serie") {
@@ -45,7 +50,7 @@ const FormMovies = ({ titulo, crearPeliculas, buscarPelicula, editarPelicula }) 
         });
         reset();
       }
-    } else{
+    } else {
       if (editarPelicula(id, pelicula)) {
         Swal.fire({
           title: "Pelicula/serie editada",
@@ -53,7 +58,7 @@ const FormMovies = ({ titulo, crearPeliculas, buscarPelicula, editarPelicula }) 
           icon: "success",
         });
       }
-      navegacion('/administrador')
+      navegacion("/administrador");
     }
   };
 
