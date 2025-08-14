@@ -40,7 +40,7 @@ const Contact = () => {
                 text: "Nos pondremos en contacto contigo en breve",
                 icon: "success",
               });
-              reset()
+              reset();
             })}
           >
             <Form.Group>
